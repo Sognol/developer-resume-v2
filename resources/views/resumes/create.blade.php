@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        Hola mundo
+        <resume-form></resume-form>
     </div>
 @endsection
