@@ -1,17 +1,17 @@
 <template>
-    <BTab title-link-class="p-2">
+    <b-tab title-link-class="p-2">
         <template v-slot:title>
             <div class="d-flex justify-content-center">
                 <div>
-                    <i :class="icon"></i>
+                    <i :class="icon" style="font-size: 25px;"></i>
                 </div>
-                <div>
+                <div class="d-none d-md-block ml-2 font-weight-bold">
                     {{ title }}
                 </div>
             </div>
         </template>
         <slot></slot>
-    </BTab>
+    </b-tab>
 </template>
 
 <script>
@@ -21,13 +21,12 @@ export default {
 
     props: {
         title: {
-            type: string,
-            required: true,
+            type: String,
+            require: true,
         },
-
         icon: {
-            type: string,
-            required: true,
+            type: String,
+            require: true,
         },
     },
 
