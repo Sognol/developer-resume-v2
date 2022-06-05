@@ -2128,7 +2128,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2275,6 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2286,23 +2287,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'FieldResumeImage',
+  name: "FieldResumeImage",
+  mixins: [vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.abstractField],
   data: function data() {
     return {
       reader: new FileReader(),
-      image: 'https://raw.githubusercontent.com/antoniosarosi/jsonresume-manager/master/storage/app/public/images/default.png'
+      image: "https://raw.githubusercontent.com/antoniosarosi/jsonresume-manager/master/storage/app/public/images/default.png"
     };
   },
   created: function created() {
     var _this = this;
 
     this.reader.onload = function (e) {
-      _this.image = e.target.result;
+      var blob = e.target.result;
+      _this.image = blob;
+      console.log(_this.model);
+      console.log(_this.schema);
+      _this.model[_this.schema.model] = blob; //resume.content.basic.picture = blob; content.basic es model | schema.model es picture
     };
   },
   methods: {
     onImageChange: function onImageChange(e) {
+      console.log(e.target.files[0]);
       this.reader.readAsDataURL(e.target.files[0]);
     }
   }
@@ -2336,6 +2344,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 Vue.component('ResumeForm', (__webpack_require__(/*! ./components/resume/ResumeForm.vue */ "./resources/js/components/resume/ResumeForm.vue")["default"]));
+Vue.component('FieldResumeImage', (__webpack_require__(/*! ./components/resume/vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -2405,6 +2414,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   fields: [{
+    type: 'resume-image',
+    label: '',
+    model: 'picture'
+  }, {
     type: "input",
     inputType: "text",
     placeholder: "Name",
@@ -43645,8 +43658,6 @@ var render = function () {
               },
             },
             [
-              _c("field-resume-image"),
-              _vm._v(" "),
               _c("VueFormGenerator", {
                 attrs: {
                   schema: _vm.schemas.basics,
@@ -43843,7 +43854,7 @@ var render = function () {
   return _c("div", { staticClass: "d-sm-inline-flex w-100" }, [
     _c("div", [_c("img", { attrs: { src: _vm.image } })]),
     _vm._v(" "),
-    _c("div", { staticClass: "align-self-center ml-sm-3 mt-3 mt-sm-0 " }, [
+    _c("div", { staticClass: "align-self-center ml-sm-3 mt-3 mt-sm-0" }, [
       _c("input", {
         attrs: { type: "file" },
         on: {

@@ -1,6 +1,12 @@
 export default {
     fields: [
         {
+            type: 'resume-image',
+            label: '',
+            model: 'picture',
+        },
+
+        {
             type: "input",
             inputType: "text",
             placeholder: "Name",

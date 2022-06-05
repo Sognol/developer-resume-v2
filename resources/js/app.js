@@ -21,6 +21,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default); 
 Vue.component('ResumeForm', require('./components/resume/ResumeForm.vue').default);
+Vue.component('FieldResumeImage', require('./components/resume/vfg/FieldResumeImage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

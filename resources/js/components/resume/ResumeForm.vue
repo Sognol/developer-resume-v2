@@ -2,7 +2,6 @@
     <div>
         <tabs>
             <tab title="Basics" icon="fa-solid fa-person-dots-from-line">
-                <field-resume-image></field-resume-image>
                 <VueFormGenerator
                     v-bind:schema="schemas.basics"
                     v-bind:model="resume.content.basics"
@@ -26,7 +25,7 @@ import basics from "./schema/basics/basics.js";
 import location from "./schema/basics/location.js";
 import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
-import FieldResumeImage from './vfg/FieldResumeImage.vue';
+import FieldResumeImage from "./vfg/FieldResumeImage.vue";
 
 export default {
     name: "ResumeForm",
