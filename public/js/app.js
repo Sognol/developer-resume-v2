@@ -2195,6 +2195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2228,11 +2230,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DynamicForm",
+  components: {
+    VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.component
+  },
   props: {
     title: {
       type: String,
+      required: true
+    },
+    schema: {
+      type: Object,
       required: true
     },
     model: {
@@ -43914,13 +43932,7 @@ var render = function () {
                 },
                 [
                   _c("div", [
-                    _c("h3", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.title) +
-                          "\n                        "
-                      ),
-                    ]),
+                    _c("h3", [_vm._v(_vm._s(_vm.title) + " " + _vm._s(i))]),
                   ]),
                   _vm._v(" "),
                   _c("div", [
@@ -43943,7 +43955,24 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [_vm._v("Form")]),
+              _c(
+                "div",
+                { staticClass: "card-body" },
+                [
+                  _c("VueFormGenerator", {
+                    attrs: {
+                      schema: _vm.schemas,
+                      model: _vm.target[_vm.prop][i],
+                      options: {
+                        validateAfterLoad: true,
+                        validateAfterChanged: true,
+                        validateAsync: true,
+                      },
+                    },
+                  }),
+                ],
+                1
+              ),
             ]),
           ]),
         ])

@@ -7,9 +7,7 @@
                         class="card-header d-sm-flex justify-content-sm-between"
                     >
                         <div>
-                            <h3>
-                                {{ title }}
-                            </h3>
+                            <h3>{{ title }} {{ i }}</h3>
                         </div>
                         <div>
                             <button
@@ -21,7 +19,17 @@
                         </div>
                     </div>
 
-                    <div class="card-body">Form</div>
+                    <div class="card-body">
+                        <VueFormGenerator
+                            v-bind:schema="schemas"
+                            v-bind:model="target[prop][i]"
+                            v-bind:options="{
+                                validateAfterLoad: true,
+                                validateAfterChanged: true,
+                                validateAsync: true,
+                            }"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,12 +40,22 @@
 </template>
 
 <script>
+import { component as VueFormGenerator } from "vue-form-generator";
+
 export default {
     name: "DynamicForm",
+
+    components: {
+        VueFormGenerator,
+    },
 
     props: {
         title: {
             type: String,
+            required: true,
+        },
+        schema: {
+            type: Object,
             required: true,
         },
         model: {
@@ -61,7 +79,7 @@ export default {
         remove(i) {
             const { target, prop } = this.$data;
             if (target[prop]) {
-                target[prop].splice(i,1);
+                target[prop].splice(i, 1);
             }
         },
 
