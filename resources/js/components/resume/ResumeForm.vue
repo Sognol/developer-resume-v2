@@ -1,7 +1,7 @@
 <template>
     <div>
         <tabs>
-            <tab title="Basics" icon="fa-solid fa-person-dots-from-line">
+            <tab title="Basics" icon="fa-solid fa-chalkboard-user">
                 <VueFormGenerator
                     v-bind:schema="schemas.basics"
                     v-bind:model="resume.content.basics"
@@ -12,6 +12,14 @@
                     v-bind:schema="schemas.location"
                     v-bind:model="resume.content.basics.location"
                     v-bind:options="options"
+                />
+            </tab>
+
+            <tab title="Profiles" icon="fa-solid fa-address-card">
+                <dynamic-form
+                    title="Profile"
+                    :model="resume.content.basics"
+                    self="profiles"
                 />
             </tab>
         </tabs>
@@ -26,6 +34,7 @@ import location from "./schema/basics/location.js";
 import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
 import FieldResumeImage from "./vfg/FieldResumeImage.vue";
+import DynamicForm from "./dynamic/DynamicForm.vue";
 
 export default {
     name: "ResumeForm",
@@ -35,6 +44,7 @@ export default {
         Tab,
         VueFormGenerator,
         FieldResumeImage,
+        DynamicForm,
     },
 
     data() {
@@ -44,6 +54,7 @@ export default {
                 content: {
                     basics: {
                         location: {},
+                        profiles: [{ test: "1" }, { test: "2" }],
                     },
                 },
             },
