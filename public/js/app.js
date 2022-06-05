@@ -2222,6 +2222,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DynamicForm",
   props: {
@@ -2236,6 +2242,36 @@ __webpack_require__.r(__webpack_exports__);
     self: {
       type: String,
       required: true
+    }
+  },
+  data: function data() {
+    return {
+      target: this.model,
+      prop: this.self
+    };
+  },
+  methods: {
+    remove: function remove(i) {
+      var _this$$data = this.$data,
+          target = _this$$data.target,
+          prop = _this$$data.prop;
+
+      if (target[prop]) {
+        target[prop].splice(i, 1);
+      }
+    },
+    add: function add() {
+      var _this$$data2 = this.$data,
+          target = _this$$data2.target,
+          prop = _this$$data2.prop;
+
+      if (!target[prop]) {
+        target[prop] = [];
+      }
+
+      target[prop].push({
+        test: "test1"
+      });
     }
   }
 });
@@ -43865,51 +43901,72 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "my-2" },
-    _vm._l(_vm.model[_vm.self], function (form, i) {
-      return _c("div", { key: i, staticClass: "row mb-3" }, [
-        _c("div", { staticClass: "col-sm" }, [
-          _c("div", { staticClass: "card" }, [
-            _c(
-              "div",
-              {
-                staticClass: "card-header d-sm-flex justify-content-sm-between",
-              },
-              [
-                _c("div", [
-                  _c("h3", [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.title) +
-                        "\n                        "
+    [
+      _vm._l(_vm.target[_vm.prop], function (form, i) {
+        return _c("div", { key: i, staticClass: "row mb-3" }, [
+          _c("div", { staticClass: "col-sm" }, [
+            _c("div", { staticClass: "card" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "card-header d-sm-flex justify-content-sm-between",
+                },
+                [
+                  _c("div", [
+                    _c("h3", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.title) +
+                          "\n                        "
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger btn-block",
+                        on: {
+                          click: function ($event) {
+                            return _vm.remove(i)
+                          },
+                        },
+                      },
+                      [
+                        _vm._v("\n                            Delete "),
+                        _c("i", { staticClass: "fa-solid fa-trash-can" }),
+                      ]
                     ),
                   ]),
-                ]),
-                _vm._v(" "),
-                _vm._m(0, true),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [_vm._v("Form")]),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [_vm._v("Form")]),
+            ]),
           ]),
-        ]),
-      ])
-    }),
-    0
+        ])
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button" },
+          on: {
+            click: function ($event) {
+              return _vm.add()
+            },
+          },
+        },
+        [_vm._v("\n        Add Profile\n    ")]
+      ),
+    ],
+    2
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("button", { staticClass: "btn btn-danger btn-block" }, [
-        _vm._v("\n                            Delete "),
-        _c("i", { staticClass: "fa-solid fa-trash-can" }),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,6 +1,6 @@
 <template>
     <div class="my-2">
-        <div v-for="(form, i) in model[self]" :key="i" class="row mb-3">
+        <div v-for="(form, i) in target[prop]" :key="i" class="row mb-3">
             <div class="col-sm">
                 <div class="card">
                     <div
@@ -12,7 +12,10 @@
                             </h3>
                         </div>
                         <div>
-                            <button class="btn btn-danger btn-block">
+                            <button
+                                class="btn btn-danger btn-block"
+                                @click="remove(i)"
+                            >
                                 Delete <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </div>
@@ -22,6 +25,9 @@
                 </div>
             </div>
         </div>
+        <button class="btn btn-primary" type="button" @click="add()">
+            Add Profile
+        </button>
     </div>
 </template>
 
@@ -41,6 +47,31 @@ export default {
         self: {
             type: String,
             required: true,
+        },
+    },
+
+    data() {
+        return {
+            target: this.model,
+            prop: this.self,
+        };
+    },
+
+    methods: {
+        remove(i) {
+            const { target, prop } = this.$data;
+            if (target[prop]) {
+                target[prop].splice(i,1);
+            }
+        },
+
+        add() {
+            const { target, prop } = this.$data;
+            if (!target[prop]) {
+                target[prop] = [];
+            }
+
+            target[prop].push({ test: "test1" });
         },
     },
 };
