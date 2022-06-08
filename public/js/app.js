@@ -2106,10 +2106,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./schema/basics/basics.js */ "./resources/js/components/resume/schema/basics/basics.js");
 /* harmony import */ var _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./schema/basics/location.js */ "./resources/js/components/resume/schema/basics/location.js");
 /* harmony import */ var _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./schema/basics/profiles */ "./resources/js/components/resume/schema/basics/profiles.js");
-/* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
-/* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
-/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
-/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
+/* harmony import */ var _schema_work__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schema/work */ "./resources/js/components/resume/schema/work.js");
+/* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
+/* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
+/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
+/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
 //
 //
 //
@@ -2139,6 +2140,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2151,11 +2162,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ResumeForm",
   components: {
-    Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.component,
-    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   data: function data() {
     return {
@@ -2170,7 +2181,8 @@ __webpack_require__.r(__webpack_exports__);
       schemas: {
         basics: _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__["default"],
         location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-        profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"]
+        profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"],
+        work: _schema_work__WEBPACK_IMPORTED_MODULE_5__["default"]
       },
       options: {
         validateAfterLoad: true,
@@ -2676,6 +2688,65 @@ __webpack_require__.r(__webpack_exports__);
     label: "Username",
     model: "username",
     styleClasses: ["col-md-4", "p-1", "pr-md-1"]
+  }]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/resume/schema/work.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/resume/schema/work.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  fields: [{
+    type: "input",
+    inputType: "text",
+    placeholder: "Lleego Travel Market",
+    label: "Company",
+    model: "company",
+    styleClasses: ["col-md-4", "p-0", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "text",
+    placeholder: "Junior Developer",
+    label: "Position",
+    model: "position",
+    styleClasses: ["col-md-4", "p-0", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "text",
+    placeholder: "https://www.lleego.com",
+    label: "Website",
+    model: "website",
+    validator: "url",
+    styleClasses: ["col-md-4", "p-0"]
+  }, {
+    type: "input",
+    inputType: "date",
+    format: "YYYY-MM-DD HH:mm:ss",
+    label: "Start Date",
+    model: "startDate",
+    styleClasses: ["col-md-6", "p-0", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "date",
+    format: "YYYY-MM-DD HH:mm:ss",
+    label: "End Date",
+    model: "endDate",
+    styleClasses: ["col-md-6", "p-0"]
+  }, {
+    type: "textArea",
+    inputType: "text",
+    placeholder: "I developed an api to calculate the CO2 emissions produced by airplanes...",
+    label: "Summary",
+    model: "summary"
   }]
 });
 
@@ -43917,6 +43988,22 @@ var render = function () {
                   model: _vm.resume.content.basics,
                   self: "profiles",
                   schema: _vm.schemas.profiles,
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "tab",
+            { attrs: { title: "Work", icon: "fa-solid fa-laptop-code" } },
+            [
+              _c("dynamic-form", {
+                attrs: {
+                  title: "Work",
+                  model: _vm.resume.content,
+                  self: "work",
+                  schema: _vm.schemas.work,
                 },
               }),
             ],

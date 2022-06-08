@@ -23,6 +23,15 @@
                     :schema="schemas.profiles"
                 />
             </tab>
+
+            <tab title="Work" icon="fa-solid fa-laptop-code">
+                <dynamic-form
+                    title="Work"
+                    :model="resume.content"
+                    self="work"
+                    :schema="schemas.work"
+                />
+            </tab>
         </tabs>
     </div>
 </template>
@@ -32,7 +41,8 @@ import { component as VueFormGenerator } from "vue-form-generator";
 import "vue-form-generator/dist/vfg.css";
 import basics from "./schema/basics/basics.js";
 import location from "./schema/basics/location.js";
-import profiles from './schema/basics/profiles' ;
+import profiles from "./schema/basics/profiles";
+import work from "./schema/work";
 import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
 import FieldResumeImage from "./vfg/FieldResumeImage.vue";
@@ -64,6 +74,7 @@ export default {
                 basics,
                 location,
                 profiles,
+                work,
             },
 
             options: {
