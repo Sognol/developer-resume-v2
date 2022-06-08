@@ -2105,10 +2105,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_form_generator_dist_vfg_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-generator/dist/vfg.css */ "./node_modules/vue-form-generator/dist/vfg.css");
 /* harmony import */ var _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./schema/basics/basics.js */ "./resources/js/components/resume/schema/basics/basics.js");
 /* harmony import */ var _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./schema/basics/location.js */ "./resources/js/components/resume/schema/basics/location.js");
-/* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
-/* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
-/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
-/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
+/* harmony import */ var _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./schema/basics/profiles */ "./resources/js/components/resume/schema/basics/profiles.js");
+/* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
+/* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
+/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
+/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
 //
 //
 //
@@ -2137,6 +2138,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -2148,11 +2151,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ResumeForm",
   components: {
-    Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.component,
-    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   data: function data() {
     return {
@@ -2171,7 +2174,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       schemas: {
         basics: _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-        location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+        location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+        profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"]
       },
       options: {
         validateAfterLoad: true,
@@ -2641,6 +2645,44 @@ __webpack_require__.r(__webpack_exports__);
     label: "Region",
     model: "region",
     styleClasses: ["col-md-6", "p-1", "pr-md-1"]
+  }]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/resume/schema/basics/profiles.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/resume/schema/basics/profiles.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  fields: [{
+    type: "input",
+    inputType: "text",
+    placeholder: "LinkedIn",
+    label: "Network",
+    model: "network",
+    styleClasses: ["col-md-4", "p-1", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "text",
+    placeholder: "https://es.linkedin.com/user",
+    label: "Url",
+    model: "url",
+    styleClasses: ["col-md-4", "p-1", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "text",
+    placeholder: "User Name",
+    label: "Username",
+    model: "username",
+    styleClasses: ["col-md-4", "p-1", "pr-md-1"]
   }]
 });
 
@@ -43881,6 +43923,7 @@ var render = function () {
                   title: "Profile",
                   model: _vm.resume.content.basics,
                   self: "profiles",
+                  schema: _vm.schemas.profiles,
                 },
               }),
             ],
@@ -43961,7 +44004,7 @@ var render = function () {
                 [
                   _c("VueFormGenerator", {
                     attrs: {
-                      schema: _vm.schemas,
+                      schema: _vm.schema,
                       model: _vm.target[_vm.prop][i],
                       options: {
                         validateAfterLoad: true,

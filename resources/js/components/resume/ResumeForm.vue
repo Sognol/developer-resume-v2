@@ -20,6 +20,7 @@
                     title="Profile"
                     :model="resume.content.basics"
                     self="profiles"
+                    :schema="schemas.profiles"
                 />
             </tab>
         </tabs>
@@ -31,6 +32,7 @@ import { component as VueFormGenerator } from "vue-form-generator";
 import "vue-form-generator/dist/vfg.css";
 import basics from "./schema/basics/basics.js";
 import location from "./schema/basics/location.js";
+import profiles from './schema/basics/profiles' ;
 import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
 import FieldResumeImage from "./vfg/FieldResumeImage.vue";
@@ -62,6 +64,7 @@ export default {
             schemas: {
                 basics,
                 location,
+                profiles,
             },
 
             options: {

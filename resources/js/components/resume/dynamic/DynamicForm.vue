@@ -21,7 +21,7 @@
 
                     <div class="card-body">
                         <VueFormGenerator
-                            v-bind:schema="schemas"
+                            v-bind:schema="schema"
                             v-bind:model="target[prop][i]"
                             v-bind:options="{
                                 validateAfterLoad: true,
