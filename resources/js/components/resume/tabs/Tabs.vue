@@ -4,10 +4,10 @@
         <div class="text-center">
             <b-button-group class="w-100">
                 <b-button block class="m-0" variant="secondary" @click="tab--">
-                    Previous
+                    <i class="fa-solid fa-angle-left"></i> Previous 
                 </b-button>
-                <b-button block class="m-0" variant="primary" @click="tab++">
-                    Next
+                <b-button block class="m-0" variant="primary" @click="tab++" >
+                    Next <i class="fa-solid fa-chevron-right"></i>
                 </b-button>
             </b-button-group>
         </div>

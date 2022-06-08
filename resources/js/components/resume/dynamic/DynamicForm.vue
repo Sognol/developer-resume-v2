@@ -86,10 +86,10 @@ export default {
         add() {
             const { target, prop } = this.$data;
             if (!target[prop]) {
-                target[prop] = [];
+                this.$set(target, prop, []);
             }
 
-            target[prop].push({ test: "test1" });
+            target[prop].push({});
         },
     },
 };

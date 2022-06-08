@@ -2163,12 +2163,7 @@ __webpack_require__.r(__webpack_exports__);
         title: "",
         content: {
           basics: {
-            location: {},
-            profiles: [{
-              test: "1"
-            }, {
-              test: "2"
-            }]
+            location: {}
           }
         }
       },
@@ -2288,12 +2283,10 @@ __webpack_require__.r(__webpack_exports__);
           prop = _this$$data2.prop;
 
       if (!target[prop]) {
-        target[prop] = [];
+        this.$set(target, prop, []);
       }
 
-      target[prop].push({
-        test: "test1"
-      });
+      target[prop].push({});
     }
   }
 });
@@ -44157,7 +44150,10 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("\n                Previous\n            ")]
+                [
+                  _c("i", { staticClass: "fa-solid fa-angle-left" }),
+                  _vm._v(" Previous \n            "),
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -44171,7 +44167,10 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("\n                Next\n            ")]
+                [
+                  _vm._v("\n                Next "),
+                  _c("i", { staticClass: "fa-solid fa-chevron-right" }),
+                ]
               ),
             ],
             1

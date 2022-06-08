@@ -56,7 +56,6 @@ export default {
                 content: {
                     basics: {
                         location: {},
-                        profiles: [{ test: "1" }, { test: "2" }],
                     },
                 },
             },
