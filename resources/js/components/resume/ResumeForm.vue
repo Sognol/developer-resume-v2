@@ -30,6 +30,7 @@
                     :model="resume.content"
                     self="work"
                     :schema="schemas.work"
+                    :subforms="subforms.work"
                 />
             </tab>
         </tabs>
@@ -45,8 +46,9 @@ import profiles from "./schema/basics/profiles";
 import work from "./schema/work";
 import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
-import FieldResumeImage from "./vfg/FieldResumeImage.vue";
 import DynamicForm from "./dynamic/DynamicForm.vue";
+import ListForm from "./dynamic/ListForm.vue";
+import FieldResumeImage from "./vfg/FieldResumeImage.vue";
 
 export default {
     name: "ResumeForm",
@@ -75,6 +77,19 @@ export default {
                 location,
                 profiles,
                 work,
+            },
+
+            subforms: {
+                work: [
+                    {
+                        component: ListForm,
+                        props: {
+                            title: "Highlights",
+                            self: "highlights",
+                            placeholder: "Best programmer of the first promotion of LLeego Academy",
+                        },
+                    },
+                ],
             },
 
             options: {

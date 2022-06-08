@@ -5,52 +5,56 @@
         </div>
 
         <div class="card-body">
-            <div v-for="(_, index) in model[self]" :key="index">
-                <div class="d-flex mb-4 p-0">
-                    <div class="col-10 p-0">
-                        <input
-                            type="text"
-                            required
-                            autofocus
-                            class="form-control"
-                            :placeholder="placeholder"
-                            v-model="model[self][index]"
-                        />
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-end">
-                            <button
-                                class="btn btn-danger"
-                                @click="remove(index)"
-                            >
-                                Delete
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </div>
+            <div
+                v-for="(input, i) in target[prop]"
+                :key="i"
+                class="d-flex mb-4 p-0"
+            >
+                <div class="col-10 p-0">
+                    <input
+                        type="text"
+                        name="skills"
+                        :placeholder="placeholder"
+                        class="form-control"
+                        v-model="target[prop][i]"
+                    />
+                </div>
+                <div class="col-2">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-danger" @click="remove(i)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div>
-                <button class="btn btn-primary" @click="add()">Add New</button>
+                <button class="btn btn-primary" @click="add()">New List</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import mixin from './mixinForm';
+import mixin from "./mixinForm";
 export default {
-    name: 'ListForm',
+    name: "ListForm",
 
     mixins: [mixin],
 
+    props: {
+        placeholder: {
+            type: String,
+            default: () => "",
+        },
+    },
+
     data() {
         return {
-            push: () => '',
-        }
-    }
-}
+            push: () => "",
+        };
+    },
+};
 </script>
 
 <style></style>

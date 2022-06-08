@@ -2109,8 +2109,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schema_work__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schema/work */ "./resources/js/components/resume/schema/work.js");
 /* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
 /* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
-/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
-/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
+/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
+/* harmony import */ var _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dynamic/ListForm.vue */ "./resources/js/components/resume/dynamic/ListForm.vue");
+/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
 //
 //
 //
@@ -2149,6 +2150,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -2165,8 +2168,8 @@ __webpack_require__.r(__webpack_exports__);
     Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.component,
-    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   data: function data() {
     return {
@@ -2183,6 +2186,16 @@ __webpack_require__.r(__webpack_exports__);
         location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__["default"],
         profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"],
         work: _schema_work__WEBPACK_IMPORTED_MODULE_5__["default"]
+      },
+      subforms: {
+        work: [{
+          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+          props: {
+            title: "Highlights",
+            self: "highlights",
+            placeholder: "Best programmer of the first promotion of LLeego Academy"
+          }
+        }]
       },
       options: {
         validateAfterLoad: true,
@@ -2250,6 +2263,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2262,7 +2284,86 @@ __webpack_require__.r(__webpack_exports__);
     schema: {
       type: Object,
       required: true
+    },
+    subforms: {
+      type: Array,
+      required: false,
+      "default": function _default() {
+        return [];
+      }
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/ListForm.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/ListForm.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixinForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixinForm */ "./resources/js/components/resume/dynamic/mixinForm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ListForm",
+  mixins: [_mixinForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    placeholder: {
+      type: String,
+      "default": function _default() {
+        return "";
+      }
+    }
+  },
+  data: function data() {
+    return {
+      push: function push() {
+        return "";
+      }
+    };
   }
 });
 
@@ -43580,6 +43681,45 @@ component.options.__file = "resources/js/components/resume/dynamic/DynamicForm.v
 
 /***/ }),
 
+/***/ "./resources/js/components/resume/dynamic/ListForm.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/resume/dynamic/ListForm.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ListForm_vue_vue_type_template_id_0aeaf4ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListForm.vue?vue&type=template&id=0aeaf4ce& */ "./resources/js/components/resume/dynamic/ListForm.vue?vue&type=template&id=0aeaf4ce&");
+/* harmony import */ var _ListForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListForm.vue?vue&type=script&lang=js& */ "./resources/js/components/resume/dynamic/ListForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ListForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ListForm_vue_vue_type_template_id_0aeaf4ce___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ListForm_vue_vue_type_template_id_0aeaf4ce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/resume/dynamic/ListForm.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/resume/tabs/Tab.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/resume/tabs/Tab.vue ***!
@@ -43747,6 +43887,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/resume/dynamic/ListForm.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/resume/dynamic/ListForm.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/ListForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/resume/tabs/Tab.vue?vue&type=script&lang=js&":
 /*!******************************************************************************!*\
   !*** ./resources/js/components/resume/tabs/Tab.vue?vue&type=script&lang=js& ***!
@@ -43855,6 +44011,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DynamicForm_vue_vue_type_template_id_a9c88648___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DynamicForm_vue_vue_type_template_id_a9c88648___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DynamicForm.vue?vue&type=template&id=a9c88648& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/DynamicForm.vue?vue&type=template&id=a9c88648&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/resume/dynamic/ListForm.vue?vue&type=template&id=0aeaf4ce&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/resume/dynamic/ListForm.vue?vue&type=template&id=0aeaf4ce& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListForm_vue_vue_type_template_id_0aeaf4ce___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListForm_vue_vue_type_template_id_0aeaf4ce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListForm_vue_vue_type_template_id_0aeaf4ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListForm.vue?vue&type=template&id=0aeaf4ce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/ListForm.vue?vue&type=template&id=0aeaf4ce&");
 
 
 /***/ }),
@@ -44029,6 +44202,7 @@ var render = function () {
                   model: _vm.resume.content,
                   self: "work",
                   schema: _vm.schemas.work,
+                  subforms: _vm.subforms.work,
                 },
               }),
             ],
@@ -44118,8 +44292,31 @@ var render = function () {
                       },
                     },
                   }),
+                  _vm._v(" "),
+                  _vm._l(_vm.subforms, function (subform, j) {
+                    return _c(
+                      "div",
+                      { key: j },
+                      [
+                        _c(
+                          subform.component,
+                          _vm._b(
+                            { tag: "component" },
+                            "component",
+                            Object.assign(
+                              {},
+                              { model: _vm.target[_vm.prop][i] },
+                              subform.props
+                            ),
+                            false
+                          )
+                        ),
+                      ],
+                      1
+                    )
+                  }),
                 ],
-                1
+                2
               ),
             ]),
           ]),
@@ -44142,6 +44339,106 @@ var render = function () {
     ],
     2
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/ListForm.vue?vue&type=template&id=0aeaf4ce&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/resume/dynamic/ListForm.vue?vue&type=template&id=0aeaf4ce& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card my-2" }, [
+    _c("div", { staticClass: "card-header" }, [
+      _c("h3", [_vm._v(_vm._s(_vm.title))]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "card-body" },
+      [
+        _vm._l(_vm.target[_vm.prop], function (input, i) {
+          return _c("div", { key: i, staticClass: "d-flex mb-4 p-0" }, [
+            _c("div", { staticClass: "col-10 p-0" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.target[_vm.prop][i],
+                    expression: "target[prop][i]",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "skills",
+                  placeholder: _vm.placeholder,
+                },
+                domProps: { value: _vm.target[_vm.prop][i] },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.target[_vm.prop], i, $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-2" }, [
+              _c("div", { staticClass: "d-flex justify-content-end" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function ($event) {
+                        return _vm.remove(i)
+                      },
+                    },
+                  },
+                  [_c("i", { staticClass: "fa-solid fa-trash-can" })]
+                ),
+              ]),
+            ]),
+          ])
+        }),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              on: {
+                click: function ($event) {
+                  return _vm.add()
+                },
+              },
+            },
+            [_vm._v("New List")]
+          ),
+        ]),
+      ],
+      2
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
