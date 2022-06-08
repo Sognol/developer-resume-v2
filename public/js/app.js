@@ -2206,8 +2206,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
-/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mixinForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixinForm */ "./resources/js/components/resume/dynamic/mixinForm.js");
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2249,56 +2250,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DynamicForm",
+  mixins: [_mixinForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   components: {
-    VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.component
+    VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_1__.component
   },
   props: {
-    title: {
-      type: String,
-      required: true
-    },
     schema: {
       type: Object,
       required: true
-    },
-    model: {
-      type: Object,
-      required: true
-    },
-    self: {
-      type: String,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      target: this.model,
-      prop: this.self
-    };
-  },
-  methods: {
-    remove: function remove(i) {
-      var _this$$data = this.$data,
-          target = _this$$data.target,
-          prop = _this$$data.prop;
-
-      if (target[prop]) {
-        target[prop].splice(i, 1);
-      }
-    },
-    add: function add() {
-      var _this$$data2 = this.$data,
-          target = _this$$data2.target,
-          prop = _this$$data2.prop;
-
-      if (!target[prop]) {
-        this.$set(target, prop, []);
-      }
-
-      target[prop].push({});
     }
   }
 });
@@ -2535,6 +2498,68 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/resume/dynamic/mixinForm.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/resume/dynamic/mixinForm.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    model: {
+      type: Object,
+      required: true
+    },
+    self: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      target: this.model,
+      prop: this.self,
+      push: function push() {
+        return {};
+      }
+    };
+  },
+  methods: {
+    remove: function remove(i) {
+      var _this$$data = this.$data,
+          target = _this$$data.target,
+          prop = _this$$data.prop;
+
+      if (target[prop]) {
+        target[prop].splice(i, 1);
+      }
+    },
+    add: function add() {
+      var _this$$data2 = this.$data,
+          target = _this$$data2.target,
+          prop = _this$$data2.prop,
+          push = _this$$data2.push;
+
+      if (!target[prop]) {
+        this.$set(target, prop, []);
+      }
+
+      target[prop].push(push());
+    }
+  }
+});
 
 /***/ }),
 
