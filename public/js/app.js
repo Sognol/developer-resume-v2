@@ -2110,13 +2110,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schema_awards__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./schema/awards */ "./resources/js/components/resume/schema/awards.js");
 /* harmony import */ var _schema_awards__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_schema_awards__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _schema_skills__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./schema/skills */ "./resources/js/components/resume/schema/skills.js");
-/* harmony import */ var _schema_skills__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_schema_skills__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _schema_work__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/work */ "./resources/js/components/resume/schema/work.js");
 /* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
 /* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
 /* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
 /* harmony import */ var _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dynamic/ListForm.vue */ "./resources/js/components/resume/dynamic/ListForm.vue");
 /* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2205,7 +2214,7 @@ __webpack_require__.r(__webpack_exports__);
         profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"],
         awards: (_schema_awards__WEBPACK_IMPORTED_MODULE_6___default()),
         education: _schema_education__WEBPACK_IMPORTED_MODULE_5__["default"],
-        skills: (_schema_skills__WEBPACK_IMPORTED_MODULE_7___default()),
+        skills: _schema_skills__WEBPACK_IMPORTED_MODULE_7__["default"],
         work: _schema_work__WEBPACK_IMPORTED_MODULE_8__["default"]
       },
       subforms: {
@@ -2223,6 +2232,14 @@ __webpack_require__.r(__webpack_exports__);
             title: "Courses",
             self: "courses",
             placeholder: "Course to Dockerize applications"
+          }
+        }],
+        Skills: [{
+          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+          props: {
+            title: "Keywords",
+            self: "keywords",
+            placeholder: "Angular 12"
           }
         }]
       },
@@ -2921,9 +2938,30 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/resume/schema/skills.js ***!
   \*********************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  fields: [{
+    type: "input",
+    inputType: "text",
+    label: "Name",
+    placeholder: "Angular Developer",
+    model: "name",
+    styleClasses: ["col-md-6", "p-0", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "text",
+    label: "Level",
+    placeholder: "Google Developer Expert",
+    model: "level",
+    styleClasses: ["col-md-6", "p-0"]
+  }]
+});
 
 /***/ }),
 
@@ -44328,6 +44366,23 @@ var render = function () {
                   self: "education",
                   schema: _vm.schemas.education,
                   subforms: _vm.subforms.education,
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "tab",
+            { attrs: { title: "Skills", icon: "fa-solid fa-code-branch" } },
+            [
+              _c("dynamic-form", {
+                attrs: {
+                  title: "Skill",
+                  model: _vm.resume.content,
+                  self: "skills",
+                  schema: _vm.schemas.skills,
+                  subforms: _vm.subforms.Skills,
                 },
               }),
             ],

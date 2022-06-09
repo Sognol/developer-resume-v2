@@ -43,6 +43,16 @@
                     :subforms="subforms.education"
                 />
             </tab>
+
+            <tab title="Skills" icon="fa-solid fa-code-branch">
+                <dynamic-form
+                    title="Skill"
+                    :model="resume.content"
+                    self="skills"
+                    :schema="schemas.skills"
+                    :subforms="subforms.Skills"
+                />
+            </tab>
         </tabs>
     </div>
 </template>
@@ -115,6 +125,17 @@ export default {
                             title: "Courses",
                             self: "courses",
                             placeholder: "Course to Dockerize applications",
+                        },
+                    },
+                ],
+
+                Skills: [
+                    {
+                        component: ListForm,
+                        props: {
+                            title: "Keywords",
+                            self: "keywords",
+                            placeholder: "Angular 12",
                         },
                     },
                 ],
