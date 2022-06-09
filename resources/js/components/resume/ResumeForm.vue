@@ -53,6 +53,15 @@
                     :subforms="subforms.Skills"
                 />
             </tab>
+
+            <tab title="Awards" icon="fa-solid fa-award">
+                <dynamic-form
+                    title="Award"
+                    :model="resume.content"
+                    self="awards"
+                    :schema="schemas.awards"
+                />
+            </tab>
         </tabs>
     </div>
 </template>

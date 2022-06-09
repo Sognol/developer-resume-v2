@@ -2108,7 +2108,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./schema/basics/profiles */ "./resources/js/components/resume/schema/basics/profiles.js");
 /* harmony import */ var _schema_education__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schema/education */ "./resources/js/components/resume/schema/education.js");
 /* harmony import */ var _schema_awards__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./schema/awards */ "./resources/js/components/resume/schema/awards.js");
-/* harmony import */ var _schema_awards__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_schema_awards__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _schema_skills__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./schema/skills */ "./resources/js/components/resume/schema/skills.js");
 /* harmony import */ var _schema_work__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/work */ "./resources/js/components/resume/schema/work.js");
 /* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
@@ -2116,6 +2115,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
 /* harmony import */ var _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dynamic/ListForm.vue */ "./resources/js/components/resume/dynamic/ListForm.vue");
 /* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2212,7 +2220,7 @@ __webpack_require__.r(__webpack_exports__);
         basics: _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__["default"],
         location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__["default"],
         profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"],
-        awards: (_schema_awards__WEBPACK_IMPORTED_MODULE_6___default()),
+        awards: _schema_awards__WEBPACK_IMPORTED_MODULE_6__["default"],
         education: _schema_education__WEBPACK_IMPORTED_MODULE_5__["default"],
         skills: _schema_skills__WEBPACK_IMPORTED_MODULE_7__["default"],
         work: _schema_work__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -2714,9 +2722,42 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/resume/schema/awards.js ***!
   \*********************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  fields: [{
+    type: "input",
+    inputType: "text",
+    label: "Title",
+    placeholder: "Award Name",
+    model: "title",
+    styleClasses: ["col-md-4", "p-0", "pr-md-1"]
+  }, {
+    type: "input",
+    inputType: "text",
+    label: "Awarder",
+    placeholder: "Microsoft Partner Of The Year",
+    model: "awarder",
+    styleClasses: ["col-md-4", "p-0"]
+  }, {
+    type: "input",
+    inputType: "date",
+    label: "Date",
+    model: "date",
+    styleClasses: ["col-md-4", "p-0", "pr-md-1"]
+  }, {
+    type: "textArea",
+    inputType: "text",
+    label: "Summary",
+    placeholder: "Microsoft gave me the award for the best junior programmer of 2022...",
+    model: "summary"
+  }]
+});
 
 /***/ }),
 
@@ -44383,6 +44424,22 @@ var render = function () {
                   self: "skills",
                   schema: _vm.schemas.skills,
                   subforms: _vm.subforms.Skills,
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "tab",
+            { attrs: { title: "Awards", icon: "fa-solid fa-award" } },
+            [
+              _c("dynamic-form", {
+                attrs: {
+                  title: "Award",
+                  model: _vm.resume.content,
+                  self: "awards",
+                  schema: _vm.schemas.awards,
                 },
               }),
             ],
