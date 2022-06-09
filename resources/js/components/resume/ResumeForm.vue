@@ -33,6 +33,16 @@
                     :subforms="subforms.work"
                 />
             </tab>
+
+            <tab title="Education" icon="fa-brands fa-docker">
+                <dynamic-form
+                    title="Education"
+                    :model="resume.content"
+                    self="education"
+                    :schema="schemas.education"
+                    :subforms="subforms.education"
+                />
+            </tab>
         </tabs>
     </div>
 </template>
@@ -43,6 +53,9 @@ import "vue-form-generator/dist/vfg.css";
 import basics from "./schema/basics/basics.js";
 import location from "./schema/basics/location.js";
 import profiles from "./schema/basics/profiles";
+import education from "./schema/education";
+import awards from "./schema/awards";
+import skills from "./schema/skills";
 import work from "./schema/work";
 import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
@@ -76,6 +89,9 @@ export default {
                 basics,
                 location,
                 profiles,
+                awards,
+                education,
+                skills,
                 work,
             },
 
@@ -86,7 +102,19 @@ export default {
                         props: {
                             title: "Highlights",
                             self: "highlights",
-                            placeholder: "Best programmer of the first promotion of LLeego Academy",
+                            placeholder:
+                                "Best programmer of the first promotion of LLeego Academy",
+                        },
+                    },
+                ],
+
+                education: [
+                    {
+                        component: ListForm,
+                        props: {
+                            title: "Courses",
+                            self: "courses",
+                            placeholder: "Course to Dockerize applications",
                         },
                     },
                 ],

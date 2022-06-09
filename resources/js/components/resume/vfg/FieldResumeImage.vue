@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             reader: new FileReader(),
-            image: "https://raw.githubusercontent.com/antoniosarosi/jsonresume-manager/master/storage/app/public/images/default.png",
+            image: "https://cdn0.iconfinder.com/data/icons/cyber-crime-or-threats-blue-set/120/hacker_cyber_crime-512.png",
         };
     },
 
