@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import jsonresume from "./jsonResume";
 import { component as VueFormGenerator } from "vue-form-generator";
 import "vue-form-generator/dist/vfg.css";
 import basics from "./schema/basics/basics.js";
@@ -89,21 +90,24 @@ export default {
         Tabs,
         Tab,
         VueFormGenerator,
-        FieldResumeImage,
+        // FieldResumeImage,
         DynamicForm,
+    },
+
+    props: {
+        update: false,
+        resume: {
+            type: Object,
+            default: () => ({
+                id: null,
+                title: "Resume Tittle",
+                content: jsonresume,
+            }),
+        },
     },
 
     data() {
         return {
-            resume: {
-                title: "",
-                content: {
-                    basics: {
-                        location: {},
-                    },
-                },
-            },
-
             schemas: {
                 basics,
                 location,

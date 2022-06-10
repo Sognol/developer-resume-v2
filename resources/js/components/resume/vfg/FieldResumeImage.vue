@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             reader: new FileReader(),
-            image: "https://cdn0.iconfinder.com/data/icons/cyber-crime-or-threats-blue-set/120/hacker_cyber_crime-512.png",
+            image: "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1426048404/y4lxnqcngh5dvoaz06as.png",
         };
     },
 

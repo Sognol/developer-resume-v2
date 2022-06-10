@@ -2100,21 +2100,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
-/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_form_generator_dist_vfg_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-generator/dist/vfg.css */ "./node_modules/vue-form-generator/dist/vfg.css");
-/* harmony import */ var _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./schema/basics/basics.js */ "./resources/js/components/resume/schema/basics/basics.js");
-/* harmony import */ var _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./schema/basics/location.js */ "./resources/js/components/resume/schema/basics/location.js");
-/* harmony import */ var _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./schema/basics/profiles */ "./resources/js/components/resume/schema/basics/profiles.js");
-/* harmony import */ var _schema_education__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schema/education */ "./resources/js/components/resume/schema/education.js");
-/* harmony import */ var _schema_awards__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./schema/awards */ "./resources/js/components/resume/schema/awards.js");
-/* harmony import */ var _schema_skills__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./schema/skills */ "./resources/js/components/resume/schema/skills.js");
-/* harmony import */ var _schema_work__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/work */ "./resources/js/components/resume/schema/work.js");
-/* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
-/* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
-/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
-/* harmony import */ var _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dynamic/ListForm.vue */ "./resources/js/components/resume/dynamic/ListForm.vue");
-/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
+/* harmony import */ var _jsonResume__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jsonResume */ "./resources/js/components/resume/jsonResume.js");
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-generator */ "./node_modules/vue-form-generator/dist/vfg.js");
+/* harmony import */ var vue_form_generator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_form_generator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_form_generator_dist_vfg_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-form-generator/dist/vfg.css */ "./node_modules/vue-form-generator/dist/vfg.css");
+/* harmony import */ var _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./schema/basics/basics.js */ "./resources/js/components/resume/schema/basics/basics.js");
+/* harmony import */ var _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./schema/basics/location.js */ "./resources/js/components/resume/schema/basics/location.js");
+/* harmony import */ var _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schema/basics/profiles */ "./resources/js/components/resume/schema/basics/profiles.js");
+/* harmony import */ var _schema_education__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./schema/education */ "./resources/js/components/resume/schema/education.js");
+/* harmony import */ var _schema_awards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./schema/awards */ "./resources/js/components/resume/schema/awards.js");
+/* harmony import */ var _schema_skills__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/skills */ "./resources/js/components/resume/schema/skills.js");
+/* harmony import */ var _schema_work__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./schema/work */ "./resources/js/components/resume/schema/work.js");
+/* harmony import */ var _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./tabs/Tabs.vue */ "./resources/js/components/resume/tabs/Tabs.vue");
+/* harmony import */ var _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./tabs/Tab.vue */ "./resources/js/components/resume/tabs/Tab.vue");
+/* harmony import */ var _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dynamic/DynamicForm.vue */ "./resources/js/components/resume/dynamic/DynamicForm.vue");
+/* harmony import */ var _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dynamic/ListForm.vue */ "./resources/js/components/resume/dynamic/ListForm.vue");
+/* harmony import */ var _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue");
 //
 //
 //
@@ -2183,6 +2184,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -2200,34 +2202,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ResumeForm",
   components: {
-    Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-    VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_0__.component,
-    FieldResumeImage: _vfg_FieldResumeImage_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
-    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    Tabs: _tabs_Tabs_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    Tab: _tabs_Tab_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    VueFormGenerator: vue_form_generator__WEBPACK_IMPORTED_MODULE_1__.component,
+    // FieldResumeImage,
+    DynamicForm: _dynamic_DynamicForm_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+  },
+  props: {
+    update: false,
+    resume: {
+      type: Object,
+      "default": function _default() {
+        return {
+          id: null,
+          title: "Resume Tittle",
+          content: _jsonResume__WEBPACK_IMPORTED_MODULE_0__["default"]
+        };
+      }
+    }
   },
   data: function data() {
     return {
-      resume: {
-        title: "",
-        content: {
-          basics: {
-            location: {}
-          }
-        }
-      },
       schemas: {
-        basics: _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-        location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-        profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_4__["default"],
-        awards: _schema_awards__WEBPACK_IMPORTED_MODULE_6__["default"],
-        education: _schema_education__WEBPACK_IMPORTED_MODULE_5__["default"],
-        skills: _schema_skills__WEBPACK_IMPORTED_MODULE_7__["default"],
-        work: _schema_work__WEBPACK_IMPORTED_MODULE_8__["default"]
+        basics: _schema_basics_basics_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+        location: _schema_basics_location_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+        profiles: _schema_basics_profiles__WEBPACK_IMPORTED_MODULE_5__["default"],
+        awards: _schema_awards__WEBPACK_IMPORTED_MODULE_7__["default"],
+        education: _schema_education__WEBPACK_IMPORTED_MODULE_6__["default"],
+        skills: _schema_skills__WEBPACK_IMPORTED_MODULE_8__["default"],
+        work: _schema_work__WEBPACK_IMPORTED_MODULE_9__["default"]
       },
       subforms: {
         work: [{
-          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
           props: {
             title: "Highlights",
             self: "highlights",
@@ -2235,7 +2242,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }],
         education: [{
-          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
           props: {
             title: "Courses",
             self: "courses",
@@ -2243,7 +2250,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }],
         Skills: [{
-          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+          component: _dynamic_ListForm_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
           props: {
             title: "Keywords",
             self: "keywords",
@@ -2549,7 +2556,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       reader: new FileReader(),
-      image: "https://cdn0.iconfinder.com/data/icons/cyber-crime-or-threats-blue-set/120/hacker_cyber_crime-512.png"
+      image: "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1426048404/y4lxnqcngh5dvoaz06as.png"
     };
   },
   created: function created() {
@@ -2714,6 +2721,72 @@ __webpack_require__.r(__webpack_exports__);
       target[prop].push(push());
     }
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/resume/jsonResume.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/resume/jsonResume.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  basics: {
+    name: "",
+    label: "",
+    picture: "/storage/pictures/arch.png",
+    email: "",
+    phone: "",
+    website: "",
+    summary: "",
+    location: {
+      address: "",
+      postalCode: "",
+      city: "",
+      countryCode: "",
+      region: ""
+    },
+    profiles: [{
+      network: "",
+      username: "",
+      url: ""
+    }]
+  },
+  work: [{
+    company: "",
+    position: "",
+    website: "",
+    startDate: "",
+    endDate: "",
+    summary: "",
+    highlights: [""]
+  }],
+  education: [{
+    institution: "",
+    area: "",
+    studyType: "",
+    startDate: "",
+    endDate: "",
+    gpa: "",
+    courses: [""]
+  }],
+  awards: [{
+    title: "",
+    date: "",
+    awarder: "",
+    summary: ""
+  }],
+  skills: [{
+    name: "",
+    level: "",
+    keywords: [""]
+  }]
 });
 
 /***/ }),
