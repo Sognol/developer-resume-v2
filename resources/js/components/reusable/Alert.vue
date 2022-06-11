@@ -55,8 +55,3 @@ export default {
 </script>
 
 <style></style>
-        <Alert
-            v-if="Array.isArray(alert.messages) && alert.messages.length > 0 || typeof alert.messages === 'string'"
-            :messages="alert.messages"
-            :type="alert.type"
-        />

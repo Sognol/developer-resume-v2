@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Alert
+            v-if="Array.isArray(alert.messages) && alert.messages.length > 0 || typeof alert.messages === 'string'"
+            :messages="alert.messages"
+            :type="alert.type"
+        />
         <div class="row mb-3">
             <div class="col-sm-8">
                 <div class="form-group">
@@ -101,6 +106,7 @@ import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
 import DynamicForm from "./dynamic/DynamicForm.vue";
 import ListForm from "./dynamic/ListForm.vue";
+import Alert from "../reusable/Alert.vue"
 import FieldResumeImage from "./vfg/FieldResumeImage.vue";
 
 export default {
@@ -112,6 +118,7 @@ export default {
         VueFormGenerator,
         // FieldResumeImage,
         DynamicForm,
+        Alert
     },
 
     props: {
@@ -196,7 +203,7 @@ export default {
                 );
                 console.log(res.data);
             } catch (e) {
-                this.alert.messages = "que ha pachado";
+                this.alert.messages = ["Error 1", "Error 2"];
             }
         },
     },
