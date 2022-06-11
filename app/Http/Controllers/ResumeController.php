@@ -18,8 +18,10 @@ class ResumeController extends Controller
 
     public function create()
     {
-        $resume = json_encode(Resume::factory()->make());
-        return view('resumes.create', compact('resume'));
+        //$resume = json_encode(Resume::factory()->make());
+        //return view('resumes.create', compact('resume'));
+        return view('resumes.create');
+
     }
 
     public function store(StoreResume $request)
@@ -42,5 +44,28 @@ class ResumeController extends Controller
         $filePath = "/storage/pictures/$fileName";
         $img->save(public_path($filePath));
         return $filePath;
+    }
+
+    public function edit(Resume $resume)
+    {
+        $this->authorize('update', $resume);
+
+        return view('resumes.edit', ['resume' => json_encode($resume)]);
+    }
+
+    public function update(StoreResume $request,Resume $resume)
+    {
+        $this->authorize('update', $resume);
+
+        $data = $request->validated();
+        $picture = $data['content']['basics']['picture'];
+        if ($picture !== $resume->content['basics']['picture']) {
+            $uri = $this->savePicture($picture);
+            $data['content']['basics']['picture'] = $uri;
+        }
+
+        $resume->update($data);
+
+        return response(status: Response::HTTP_OK);
     }
 }

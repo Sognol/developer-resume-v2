@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             reader: new FileReader(),
-            image: "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1426048404/y4lxnqcngh5dvoaz06as.png",
+            image: this.model[this.schema.model],
         };
     },
 

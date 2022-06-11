@@ -1,7 +1,10 @@
 <template>
     <div>
         <Alert
-            v-if="Array.isArray(alert.messages) && alert.messages.length > 0 || typeof alert.messages === 'string'"
+            v-if="
+                (Array.isArray(alert.messages) && alert.messages.length > 0) ||
+                typeof alert.messages === 'string'
+            "
             :messages="alert.messages"
             :type="alert.type"
         />
@@ -106,7 +109,7 @@ import Tabs from "./tabs/Tabs.vue";
 import Tab from "./tabs/Tab.vue";
 import DynamicForm from "./dynamic/DynamicForm.vue";
 import ListForm from "./dynamic/ListForm.vue";
-import Alert from "../reusable/Alert.vue"
+import Alert from "../reusable/Alert.vue";
 import FieldResumeImage from "./vfg/FieldResumeImage.vue";
 
 export default {
@@ -118,7 +121,7 @@ export default {
         VueFormGenerator,
         // FieldResumeImage,
         DynamicForm,
-        Alert
+        Alert,
     },
 
     props: {
@@ -197,12 +200,12 @@ export default {
     methods: {
         async submit() {
             try {
-                const res = await axios.post(
-                    "http://localhost:8080/resumes",
-                    this.resume
-                );
+                const res = this.update
+                    ? await axios.put(route("resumes.update", this.resume.id), this.resume)
+                    : await axios.post(route("resumes.store"), this.resume);
+                    
                 console.log(res.data);
-                window.location = '/home';
+                //window.location = "/home";
             } catch (e) {
                 this.alert.messages = ["Error 1", "Error 2"];
             }
