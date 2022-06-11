@@ -18,7 +18,7 @@ class CreateResumesTable extends Migration
             $table->id();
             $table->string('title');
             $table->json('content');
-            $table->foreign('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

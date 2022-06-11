@@ -202,6 +202,7 @@ export default {
                     this.resume
                 );
                 console.log(res.data);
+                window.location = '/home';
             } catch (e) {
                 this.alert.messages = ["Error 1", "Error 2"];
             }
