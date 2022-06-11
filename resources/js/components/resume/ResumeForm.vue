@@ -198,16 +198,85 @@ export default {
     },
 
     methods: {
+        validate(target, parent = "resume") {
+            let errors = [];
+            for (const [prop, value] of Object.entries(target)) {
+                if (Array.isArray(value)) {
+                    if (value.length === 0) {
+                        errors.push(
+                            `${parent} => ${prop} must have at least one element`
+                        );
+                        continue;
+                    }
+                    for (const i in value) {
+                        if (typeof value[i] === null || value[i] === "") {
+                            errors.push(
+                                `${parent} => ${prop} => ${i} cannot be empty`
+                            );
+                        } else if (typeof value[i] === "object") {
+                            errors = errors.concat(
+                                this.validate(
+                                    value[i],
+                                    `${parent} > ${prop} > ${i}`
+                                )
+                            );
+                        }
+                    }
+                } else if (typeof value === "object") {
+                    errors = errors.concat(
+                        this.validate(value, `${parent} => ${prop}`)
+                    );
+                } else if (value === null || value === "") {
+                    errors.push(`${parent} => ${prop} is required`);
+                }
+            }
+            return errors;
+        },
+
+        isValid() {
+            this.alert.messages = [];
+            const errors = this.validate(this.resume.content);
+            if (errors.length < 1) {
+                return true;
+            }
+            this.alert.type = "warning";
+            this.alert.messages = errors;
+
+            return false;
+        },
+
         async submit() {
+            if (!this.isValid()) {
+                return;
+            }
             try {
                 const res = this.update
-                    ? await axios.put(route("resumes.update", this.resume.id), this.resume)
+                    ? await axios.put(
+                          route("resumes.update", this.resume.id),
+                          this.resume
+                      )
                     : await axios.post(route("resumes.store"), this.resume);
-                    
+
                 console.log(res.data);
                 //window.location = "/home";
             } catch (e) {
-                this.alert.messages = ["Error 1", "Error 2"];
+                this.alert.messages = [];
+                const errors = e.response.data.errors;
+                for (const [prop, value] of Object.entries(errors)) {
+                    let origin = prop.split(".");
+                    if (origin[0] === "content") {
+                        origin.splice(0, 1);
+                    }
+                    origin = origin.join(" => ");
+                    for (const error of value) {
+                        const message = error.replace(
+                            prop,
+                            `<strong>${origin}</strong>`
+                        );
+                        this.alert.messages.push(message);
+                    }
+                }
+                this.alert.type = "danger";
             }
         },
     },
