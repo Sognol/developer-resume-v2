@@ -1,5 +1,25 @@
 <template>
     <div>
+        <div class="row mb-3">
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <input
+                        v-model="resume.title"
+                        placeholder="Resume Title"
+                        required
+                        autofocus
+                        class="form-control w-100"
+                    />
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <button class="btn btn-success btn-block" @click="submit()">
+                    Submit <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+
         <tabs>
             <tab title="Basics" icon="fa-solid fa-chalkboard-user">
                 <VueFormGenerator
@@ -108,6 +128,11 @@ export default {
 
     data() {
         return {
+            alert: {
+                type: "warning",
+                messages: [],
+            },
+
             schemas: {
                 basics,
                 location,
@@ -160,6 +185,20 @@ export default {
                 validateAsync: true,
             },
         };
+    },
+
+    methods: {
+        async submit() {
+            try {
+                const res = await axios.post(
+                    "http://localhost:8080/resumes",
+                    this.resume
+                );
+                console.log(res.data);
+            } catch (e) {
+                this.alert.messages = "que ha pachado";
+            }
+        },
     },
 };
 </script>

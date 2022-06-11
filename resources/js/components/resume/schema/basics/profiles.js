@@ -15,6 +15,7 @@ export default {
             placeholder: "https://es.linkedin.com/user",
             label: "Url",
             model: "url",
+            validator: 'url',
             styleClasses: ["col-md-4", "p-1", "pr-md-1"],
         },
 

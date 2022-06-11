@@ -25,7 +25,7 @@ class ResumeFactory extends Factory
                     "website" => $this->faker->url,
                     "summary" => "A summary of John Doe...",
                     "location" => [
-                        "address" => "2712 Broadway St",
+                        "adress" => "2712 Broadway St",
                         "postalCode" => "CA 94115",
                         "city" => "San Francisco",
                         "countryCode" => "US",
