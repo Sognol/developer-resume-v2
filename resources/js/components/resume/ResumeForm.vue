@@ -23,7 +23,7 @@
 
             <div class="col-sm-4">
                 <button class="btn btn-success btn-block" @click="submit()">
-                    Submit <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    <i class="fa-solid fa-paper-plane"></i> Submit 
                 </button>
             </div>
         </div>
@@ -258,7 +258,7 @@ export default {
                     : await axios.post(route("resumes.store"), this.resume);
 
                 console.log(res.data);
-                //window.location = "/home";
+                window.location = route('resumes.index'); //redirect
             } catch (e) {
                 this.alert.messages = [];
                 const errors = e.response.data.errors;

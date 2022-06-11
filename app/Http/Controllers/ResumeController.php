@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Resume;
 use App\Http\Requests\StoreResume;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 
@@ -16,11 +17,18 @@ class ResumeController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $resumes = auth()->user()->resumes;
+
+        return view('resumes.index', compact('resumes'));
+    }
+
     public function create()
     {
-        //$resume = json_encode(Resume::factory()->make());
-        //return view('resumes.create', compact('resume'));
-        return view('resumes.create');
+        $resume = json_encode(Resume::factory()->make());
+        return view('resumes.create', compact('resume'));
+        //return view('resumes.create');
 
     }
 
@@ -34,6 +42,12 @@ class ResumeController extends Controller
         }
 
         $resume = auth()->user()->resumes()->create($data);
+
+        Session::flash('alert', [
+            'type' => 'success',
+            'messages' => ["Resume $resume->title created successfully"]
+        ]);
+
         return response($resume, Response::HTTP_CREATED);
     }
 
@@ -66,6 +80,22 @@ class ResumeController extends Controller
 
         $resume->update($data);
 
+        Session::flash('alert', [
+            'type' => 'success',
+            'messages' => ["Resume $resume->title updated successfully"]
+        ]);
+
         return response(status: Response::HTTP_OK);
+    }
+
+    public function destroy(Resume $resume)
+    {
+        $this->authorize('delete', $resume);
+        $resume->delete();
+
+        return redirect()->route('resumes.index')->with('alert', [
+            'type' => 'success',
+            'messages' => ["Resume $resume->title deleted successfully"]
+        ]);
     }
 }

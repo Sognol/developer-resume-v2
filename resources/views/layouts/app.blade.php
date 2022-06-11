@@ -35,7 +35,33 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a href="{{ route('resumes.create') }}">
+                              <i class="fa-solid fa-file-circle-plus"></i>
+                              Create Resume
+                            </a>
+                          </li>
 
+                          <li class="ml-md-2">
+                            <a href="{{ route('resumes.index') }}">
+                              <i class="fa-solid fa-folder-open"></i>
+                              My Resumes
+                            </a>
+                          </li>
+
+                          <li class="ml-md-2">
+                            <a href="{{ route('resumes.create') }}">
+                              <i class="fa-solid fa-file-export"></i>
+                              Post Resume
+                            </a>
+                          </li>
+                          
+                          <li class="ml-md-2">
+                            <a href="{{ route('resumes.index') }}">
+                              <i class="fa-solid fa-laptop-file"></i>
+                              My Published Resumes
+                            </a>
+                          </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -78,6 +104,14 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                @if (session('alert'))
+                    <alert
+                        :messages="{{ json_encode(session('alert')['messages']) }}"
+                        type="{{ session('alert')['type'] }}"
+                    />
+                @endif
+            </div>
             @yield('content')
         </main>
     </div>

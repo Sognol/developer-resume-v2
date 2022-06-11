@@ -2408,13 +2408,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
               case 12:
                 res = _context.t0;
-                console.log(res.data); //window.location = "/home";
+                console.log(res.data);
+                window.location = route('resumes.index'); //redirect
 
-                _context.next = 22;
+                _context.next = 23;
                 break;
 
-              case 16:
-                _context.prev = 16;
+              case 17:
+                _context.prev = 17;
                 _context.t1 = _context["catch"](2);
                 _this.alert.messages = [];
                 errors = _context.t1.response.data.errors;
@@ -2446,12 +2447,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
                 _this.alert.type = "danger";
 
-              case 22:
+              case 23:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[2, 16]]);
+        }, _callee, null, [[2, 17]]);
       }))();
     }
   }
@@ -2856,6 +2857,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 Vue.component('ResumeForm', (__webpack_require__(/*! ./components/resume/ResumeForm.vue */ "./resources/js/components/resume/ResumeForm.vue")["default"]));
 Vue.component('FieldResumeImage', (__webpack_require__(/*! ./components/resume/vfg/FieldResumeImage.vue */ "./resources/js/components/resume/vfg/FieldResumeImage.vue")["default"]));
+Vue.component('Alert', (__webpack_require__(/*! ./components/reusable/Alert.vue */ "./resources/js/components/reusable/Alert.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -44782,8 +44784,8 @@ var render = function () {
               },
             },
             [
-              _vm._v("\n                Submit "),
-              _c("i", { staticClass: "fa-solid fa-arrow-up-from-bracket" }),
+              _c("i", { staticClass: "fa-solid fa-paper-plane" }),
+              _vm._v(" Submit \n            "),
             ]
           ),
         ]),
