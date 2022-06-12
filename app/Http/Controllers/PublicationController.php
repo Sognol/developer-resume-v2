@@ -120,7 +120,15 @@ class PublicationController extends Controller
      */
     public function edit(Publication $publication)
     {
-        //
+        $this->authorize('update', $publication);
+        $resumes = auth()->user()->resumes;
+        $themes = Theme::all();
+
+        return view('publications.edit', compact(
+            'publication',
+            'resumes',
+            'themes',
+        ));
     }
 
     /**
@@ -132,7 +140,14 @@ class PublicationController extends Controller
      */
     public function update(Request $request, Publication $publication)
     {
-        //
+        $this->authorize('update', $publication);
+        $data = $request->validate($this->rules);
+        $publication->update($data);
+
+        return redirect()->route('publications.index')->with('alert', [
+            'type' => 'success',
+            'messages' => ["Publication $publication->url updated"]
+        ]);
     }
 
     /**
