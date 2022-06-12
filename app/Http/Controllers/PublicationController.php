@@ -33,7 +33,9 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        //
+        $publications = auth()->user()->publications;
+
+        return view('publications.index', compact('publications'));
     }
 
     public function preview(Request $request)
@@ -80,7 +82,23 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate(($this->rules));
+        $publication = auth()->user()->publications()->create(array_merge(
+            $data,
+            ['url' => 'tmp']
+        ));
+        $url = route('publications.show', $publication->id);
+        $publication->update(compact('url'));
+
+        $resume = Resume::where('id', $data['resume_id'])->first();
+        $theme = $publication->theme()->get()->first();
+
+        return redirect()->route('publications.index')->with('alert', [
+            'type' => 'success',
+            'messages' => [
+                "Resume $resume->title publication with theme $theme->theme at <a href='$url'>$url</a>"
+            ]
+            ]);
     }
 
     /**

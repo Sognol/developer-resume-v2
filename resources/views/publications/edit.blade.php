@@ -53,7 +53,7 @@
         const iframe = document.getElementById('iframe');
 
         async function loadPreview(resume, theme) {
-            iframe.srcdoc = '<h1>Waiting for theme selection</h1>'
+            iframe.srcdoc = '<h1>Loading theme...</h1>'
             console.log(resume, theme);
             try {
                 const res = await axios.post(route('publications.preview'), {
@@ -68,6 +68,8 @@
 
         const resume = document.getElementById('resume');
         const theme = document.getElementById('theme');
+
+        await loadPreview(resume.value, theme.value);
 
         resume.onchange = async (e) => await loadPreview(e.target.value, theme.value);
         theme.onchange = async (e) => await loadPreview(resume.value, e.target.value);

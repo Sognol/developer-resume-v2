@@ -50,14 +50,14 @@
                           </li>
 
                           <li class="ml-md-2">
-                            <a href="{{ route('resumes.create') }}">
+                            <a href="{{ route('publications.create') }}">
                               <i class="fa-solid fa-file-export"></i>
                               Post Resume
                             </a>
                           </li>
                           
                           <li class="ml-md-2">
-                            <a href="{{ route('resumes.index') }}">
+                            <a href="{{ route('publications.index') }}">
                               <i class="fa-solid fa-laptop-file"></i>
                               My Published Resumes
                             </a>
