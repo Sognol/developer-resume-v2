@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Resume;
 use App\Http\Requests\StoreResume;
+use App\Models\Publication;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
@@ -91,7 +93,21 @@ class ResumeController extends Controller
     public function destroy(Resume $resume)
     {
         $this->authorize('delete', $resume);
-        $resume->delete();
+
+        try {
+            $resume->delete();
+        } catch(QueryException $e) {
+            $publication = Publication::where('resume_id', $resume->id)->first();
+            
+            return redirect()->route('resumes.index')->with('alert', [
+                'type' => 'danger',
+                'messages' => ["
+                    !!!!! Resume $resume->title cannot be deleted because publication
+                    <a href='$publication->url'>$publication->url</a> is using it !!!!!
+                    Developer, delete the publication first :D
+                "]
+            ]);
+        }
 
         return redirect()->route('resumes.index')->with('alert', [
             'type' => 'success',

@@ -69,6 +69,9 @@ class PublicationController extends Controller
     public function create()
     {
         $resumes = auth()->user()->resumes;
+        if (count($resumes) < 1) {
+            return redirect()->route('resumes.create');
+        }
         $themes = Theme::all();
 
         return view('publications.edit', compact('resumes', 'themes'));
@@ -158,6 +161,12 @@ class PublicationController extends Controller
      */
     public function destroy(Publication $publication)
     {
-        //
+        $this->authorize('delete', $publication);
+        $publication->delete();
+
+        return redirect()->route('publications.index')->with('alert', [
+            'type' => 'success',
+            'messages' => ["Publication $publication->url deleted"]
+        ]);
     }
 }
