@@ -25,27 +25,27 @@ class ResumeFactory extends Factory
                     "website" => $this->faker->url,
                     "summary" => "A summary of John Doe...",
                     "location" => [
-                        "adress" => "2712 Broadway St",
-                        "postalCode" => "CA 94115",
-                        "city" => "San Francisco",
-                        "countryCode" => "US",
-                        "region" => "California"
+                        "adress" => "C/ de la piruleta nº 69",
+                        "postalCode" => "29 200",
+                        "city" => "Antequera",
+                        "countryCode" => "ES",
+                        "region" => "Málaga"
                     ],
                     "profiles" => [
                         [
-                            "network" => "Twitter",
-                            "username" => "john",
-                            "url" => "http://twitter.com/john"
+                            "network" => "Linkedin",
+                            "username" => "Sognol",
+                            "url" => "http://www.linkedin.com/sognol"
                         ]
                     ]
                 ],
                 "work" => [
                     [
-                        "company" => "Company",
-                        "position" => "President",
-                        "website" => "http://company.com",
-                        "startDate" => "2013-01-01",
-                        "endDate" => "2014-01-01",
+                        "company" => "Google",
+                        "position" => "Backend Develooper PHP",
+                        "website" => "http://www.gooogle.es/developer",
+                        "startDate" => "2021-01-01",
+                        "endDate" => "2022-01-01",
                         "summary" => "Description...",
                         "highlights" => [
                             "Started the company"
@@ -57,18 +57,18 @@ class ResumeFactory extends Factory
                         "institution" => "University",
                         "area" => "Software Development",
                         "studyType" => "Bachelor",
-                        "startDate" => "2011-01-01",
-                        "endDate" => "2013-01-01",
-                        "gpa" => "4.0",
+                        "startDate" => "2021-01-01",
+                        "endDate" => "2022-04-01",
+                        "gpa" => "8.0",
                         "courses" => [
-                            "DB1101 - Basic SQL"
+                            "Courses UMA - Expert Docker"
                         ],
                     ]
                 ],
                 "awards" => [
                     [
                         "title" => "Award",
-                        "date" => "2014-11-01",
+                        "date" => "2021-11-01",
                         "awarder" => "Company",
                         "summary" => "There is no spoon."
                     ]
@@ -78,9 +78,9 @@ class ResumeFactory extends Factory
                         "name" => "Web Development",
                         "level" => "Master",
                         "keywords" => [
-                            "HTML",
-                            "CSS",
-                            "Javascript"
+                            "PHP",
+                            "Laravel",
+                            "Symfony"
                         ]
                     ]
                 ],
