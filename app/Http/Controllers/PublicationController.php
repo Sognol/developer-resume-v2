@@ -6,6 +6,7 @@ use App\Models\Publication;
 use App\Models\Theme;
 use App\Models\Resume;
 use Facade\FlareClient\Http\Response;
+use Illuminate\Http\Client\Response as ClientResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Http;
@@ -21,7 +22,7 @@ class PublicationController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'show']);
         $this->jsonResumeApi = config('services.jsonresume.api');
     }
 
@@ -112,7 +113,15 @@ class PublicationController extends Controller
      */
     public function show(Publication $publication)
     {
-        //
+        if ($publication->visibility === 'private') {
+            if (!auth()->check()) {
+                return redirect()->route('login');
+            }
+            if (auth()->user()->id !== $publication->user->id) {
+                abort(HttpResponse::HTTP_FORBIDDEN);
+            }
+        }
+        return $this->render($publication->resume, $publication->theme);
     }
 
     /**
