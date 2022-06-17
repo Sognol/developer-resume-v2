@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Welcome to the ultimate resume builder app!!! We cant wait for you to try our application to create the ultimate resume and find the job of your dreams. If you like the application share it with the community ') }}
                 </div>
             </div>
         </div>

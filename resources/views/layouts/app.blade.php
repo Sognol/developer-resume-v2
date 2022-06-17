@@ -32,6 +32,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <div class="mr-3">
+                    <img width="35px" height="35px" src="https://brandlogos.net/wp-content/uploads/2014/11/google-developers-logo.png" alt="">
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
