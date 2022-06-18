@@ -17,13 +17,13 @@ class ResumeFactory extends Factory
             "title" => "Testing",
             "content" => [
                 "basics" => [
-                    "name" => $this->faker->name(),
-                    "label" => $this->faker->jobTitle,
+                    "name" => "Pepe Guapo Bonito",
+                    "label" => "Junio Developer",
                     "picture" => "/storage/pictures/arch.png",
-                    "email" => $this->faker->safeEmail,
-                    "phone" => $this->faker->phoneNumber,
-                    "website" => $this->faker->url,
-                    "summary" => "A summary of John Doe...",
+                    "email" => "pepe.guapo@gmail.com",
+                    "phone" => "722 40 87 43",
+                    "website" => "http://www.pepehub.com",
+                    "summary" => "I am a php programmer looking for a company where I can develop my full potential.",
                     "location" => [
                         "adress" => "C/ de la piruleta nº 69",
                         "postalCode" => "29 200",
@@ -33,7 +33,7 @@ class ResumeFactory extends Factory
                     ],
                     "profiles" => [
                         [
-                            "network" => "Linkedin",
+                            "network" => "LinkedIn",
                             "username" => "Sognol",
                             "url" => "http://www.linkedin.com/sognol"
                         ]
@@ -46,20 +46,20 @@ class ResumeFactory extends Factory
                         "website" => "http://www.gooogle.es/developer",
                         "startDate" => "2021-01-01",
                         "endDate" => "2022-01-01",
-                        "summary" => "Description...",
+                        "summary" => "I worked on the team that developed the new Google Stadia user interface.",
                         "highlights" => [
-                            "Started the company"
+                            "I only lasted a month at Google, but I really enjoyed playing Stadia, before it was canceled and I was kicked out of the company."
                         ]
                     ]
                 ],
                 "education" => [
                     [
-                        "institution" => "University",
+                        "institution" => "ITEC professional training",
                         "area" => "Software Development",
-                        "studyType" => "Bachelor",
-                        "startDate" => "2021-01-01",
-                        "endDate" => "2022-04-01",
-                        "gpa" => "8.0",
+                        "studyType" => "Advanced technician",
+                        "startDate" => "2020-09-09",
+                        "endDate" => "2022-06-06",
+                        "gpa" => "9.0",
                         "courses" => [
                             "Courses UMA - Expert Docker"
                         ],
@@ -67,16 +67,16 @@ class ResumeFactory extends Factory
                 ],
                 "awards" => [
                     [
-                        "title" => "Award",
-                        "date" => "2021-11-01",
-                        "awarder" => "Company",
-                        "summary" => "There is no spoon."
+                        "title" => "Best Developer in LLeego",
+                        "date" => "2022-11-01",
+                        "awarder" => "Lleego",
+                        "summary" => "The best developer in the company"
                     ]
                 ],
                 "skills" => [
                     [
-                        "name" => "Web Development",
-                        "level" => "Master",
+                        "name" => "Backend Developer",
+                        "level" => "Senior",
                         "keywords" => [
                             "PHP",
                             "Laravel",
