@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ResumePublication;
 use App\Models\Publication;
 use App\Models\Theme;
 use App\Models\Resume;
@@ -9,7 +10,9 @@ use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Client\Response as ClientResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class PublicationController extends Controller
 {
@@ -97,6 +100,8 @@ class PublicationController extends Controller
         $resume = Resume::where('id', $data['resume_id'])->first();
         $theme = $publication->theme()->get()->first();
 
+        Mail::to($request->user())->send(new ResumePublication($resume));
+
         return redirect()->route('publications.index')->with('alert', [
             'type' => 'success',
             'messages' => [
@@ -121,7 +126,16 @@ class PublicationController extends Controller
                 abort(HttpResponse::HTTP_FORBIDDEN);
             }
         }
-        return $this->render($publication->resume, $publication->theme);
+
+        $cacheRender = "publication $publication->id";
+        if(!Cache::has($cacheRender)) {
+            $res = $this->render($publication->resume, $publication->theme);
+            if ($res->status() !=200) {
+                return $res;
+            }
+            Cache::put($cacheRender, $res, now()->addMinutes(30));
+        }
+        return Cache::get($cacheRender);
     }
 
     /**
